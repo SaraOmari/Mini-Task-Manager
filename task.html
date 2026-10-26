@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="task.css">
+<script src="task.js" defer></script>
+    <title>Mini Task Manager</title>
+</head>
+<body>
+    <nav >
+        
+            <h1> <i class="bi bi-card-checklist" ></i> Task Manager</h1>
+            <ul>
+                <li><a href="task.html">Home</a></li>
+                <li><a href="try.html">Tasks</a></li>
+                <li><a href="try.html">About</a></li>
+            </ul>
+        </nav>
+    <h2>Add new Task
+</h2>
+    <table>
+        <thead>
+    <tr>
+                <th>Task Name</th>
+                <th>Priority</th>
+                <th>Category</th>
+                <th>Due Date</th>
+            </tr></thead>
+        <tbody id="task-list">
+            
+            <tr>
+                <td><input type="text" placeholder="Task Name" id="task-name"></td>
+                <td>
+                    <select id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="task-category">
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="shopping">Shopping</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="date" id="task-due-date">
+                </td>
+            </tr>
+        <tr><td colspan="4"><form><button type="button" id="addBtn">Add Task</button></form></td></tr>
+        
+        </tbody>
+    </table>
+    <input type="text" placeholder="Search task..." id="search-task" > <button> <i class="bi bi-search"></i></button>
+    <div class="filters">
+
+        <label for="filter-priority">Filter by Priority:</label>
+        <select id="filter-priority">
+            <option value="all">All</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <label for="filter-category">Filter by Category:</label>
+        <select id="filter-category">
+            <option value="all">All</option>
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+            <option value="shopping">Shopping</option>
+            
+        </select>
+    <label for="filter-status">Filter by Status:</label>
+        <select id="filter-status">
+        <option value="all">All Tasks</option>
+        <option value="completed">Completed</option>
+        <option value="incomplete">Incomplete</option>
+    </select>
+</div>
+<div class="statistics">
+    <div class="stat-card">
+        <h3>Total Tasks</h3>
+        <p id="total-tasks">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Completed</h3>
+        <p id="completed-tasks">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Incomplete</h3>
+        <p id="incomplete-tasks">0</p>
+    </div>
+</div>
+    <div class="cards"></div>
+
+    <div class="quote-box">
+    <h3>Motivational Quote</h3>
+    <p id="quote">Click the button to get a quote.</p>
+    <button id="quote-btn">New Quote</button>
+</div>
+<footer>
+    <p>&copy; 2024 Mini Task Manager. All rights reserved.</p>
+    
+</body>
+</html>
+<!-- المستخدم يضغط الزر
+
+يتم استدعاء الدالة getQuote().
+
+
+
+
+2. fetch()
+
+يرسل طلبًا إلى الـ API للحصول على اقتباس.
+
+
+
+
+3. await
+
+ينتظر نتيجة الطلب دون تجميد الصفحة.
+
+
+
+
+4. response.json()
+
+يحوّل استجابة JSON إلى كائن JavaScript نستطيع استخدام بياناته.
+
+
+
+
+5. عرض النتيجة
+
+نضع الاقتباس واسم صاحبه داخل العنصر الذي يحمل id="quote".
+
+
+
+5. أهم المفاهيم التي استخدمناها
+الكود	وظيفته
+async	يسمح باستخدام await داخل الدالة.
+fetch(url)	يرسل طلبًا إلى الـ API.
+await	ينتظر اكتمال الـ Promise قبل متابعة السطر التالي.
+response.ok	يتحقق من نجاح استجابة HTTP.
+response.json()	يقرأ بيانات الاستجابة بصيغة JSON.
+try...catch	يتعامل مع الأخطاء إذا فشل الطلب أو قراءة البيانات.
+
+الفرق بين catch(), then()
+.then()	async/await
+بتتعامل مع النتيجة باستخدام callbacks	بتتعامل مع النتيجة كأنك بتكتب كودًا متسلسلًا
+ممكن تصير السلسلة طويلة مع عدة عمليات	غالبًا أسهل للقراءة مع العمليات المتتابعة
+الأخطاء ممكن نتعامل معها باستخدام .catch()	ممكن نتعامل معها باستخدام try/catch
+ما بتحتاج تعريف الدالة async	await العادية لازم تكون داخل async function، أو ضمن سياق يدعم top-level await-->
